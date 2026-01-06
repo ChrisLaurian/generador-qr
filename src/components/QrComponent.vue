@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <form @submit.prevent="generateQRCode" class="form">
-        <label for="facebookId" class="label">Ingresa tu ID de Facebook:</label>
+        <label for="facebookId" class="label">Ingresa un enlace:</label>
         <input v-model="facebookId" type="text" id="facebookId" class="input" required />
         <button type="submit" class="button">Generar QR</button>
       </form>
@@ -28,7 +28,8 @@
     methods: {
       generateQRCode() {
         const qrcode = QRCode(0, "H");
-        qrcode.addData(`https://www.facebook.com/profile.php?id=${this.facebookId}`);
+        "qrcode.addData(`https://www.facebook.com/profile.php?id=${this.facebookId}`);"
+        qrcode.addData(this.facebookId);
         qrcode.make();
   
         const qrImageUrl = qrcode.createDataURL();
