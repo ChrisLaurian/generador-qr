@@ -19,7 +19,7 @@ export default {
 
 <style>
 #app {
-  background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+  
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
