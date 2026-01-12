@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "firebase": "^12.7.0",
     "gh-pages": "^6.3.0",
     "node.js": "^0.0.1-security",
     "qrcode-generator": "^1.4.4",

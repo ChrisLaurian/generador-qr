@@ -88,6 +88,8 @@
 </template>
 
 <script>
+import { db } from "../firebase";
+import { ref, push } from "firebase/database";
 import QRCode from "qrcode-generator";
 
 export default {
@@ -130,6 +132,19 @@ export default {
       const margin = cellSize * 2;
       
       canvas.width = canvas.height = moduleCount * cellSize + margin * 2;
+
+      try {
+    const historialRef = ref(db, 'historial_qr'); // Apunta al nodo que creamos
+    await push(historialRef, {
+      contenido: this.text,
+      color: this.qrColor,
+      estilo: this.dotStyle,
+      fecha: new Date().toLocaleString()
+    });
+    console.log("Guardado en Firebase con éxito");
+  } catch (error) {
+    console.error("Error al guardar en base de datos:", error);
+  }
 
       // Dibujado de fondo y módulos
       ctx.fillStyle = "#FFFFFF";
